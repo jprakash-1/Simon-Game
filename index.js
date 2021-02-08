@@ -15,6 +15,7 @@ $(document).keypress(function() {
   }
 });
 
+
 $(".btn").click(function() {
 
   var userChosenColour = $(this).attr("id");
@@ -25,6 +26,13 @@ $(".btn").click(function() {
 
   checkAnswer(userClickedPattern.length-1);
 });
+
+function startOver(){
+    gamePattern = [];
+    userClickedPattern = [];
+    started = false;
+    level = 0;
+}
 
 
 function checkAnswer(currentLevel) {
@@ -54,6 +62,8 @@ function checkAnswer(currentLevel) {
       }, 100);
 
       $('#level-title').text("Game Over, Press Any Key to Restart");
+
+      startOver();
     }
 
 }
